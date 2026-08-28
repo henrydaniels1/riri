@@ -2,7 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { ArrowRight, BriefcaseBusiness, Check, ChevronDown, Download, FileCheck2, Heart, Menu, Sparkles, Users, X } from 'lucide-react'
+import { ArrowRight, BriefcaseBusiness, Check, Download, FileCheck2, Heart, Users, X } from 'lucide-react'
+import { Navbar } from '@/components/shared/Navbar'
+import { Eyebrow } from '@/components/shared/Eyebrow'
+import { Reveal } from '@/components/shared/Reveal'
+import { SiteFooter } from '@/components/shared/SiteFooter'
 
 const services = [
   { title: 'Recruitment', copy: 'End-to-end hiring that attracts, screens and places the right talent — from job description to offer.', icon: Users },
@@ -34,14 +38,158 @@ const faqs = [
   ['Do you handle compliance in specific countries?', 'Our consultants can advise on the jurisdictions where we operate and coordinate local specialists when needed.'],
 ]
 
-function Navbar() { const [open, setOpen] = useState(false); return <header className="site-nav"><div className="container nav-inner"><Link href="/" className="logo"><span className="logo-mark">◆</span><span>Veridian</span></Link><nav className={`nav-links ${open ? 'nav-open' : ''}`}><Link href="/">Home</Link><Link href="/#about">About</Link><div className="nav-service-menu"><button type="button" className="nav-services">Services <ChevronDown size={14} /></button><div className="service-dropdown"><Link href="/services/ghostwriting">Ghostwriting <ArrowRight size={14} /></Link><Link href="/services/cyber-security">Cyber Security <ArrowRight size={14} /></Link><Link href="/services/human-resources">Human Resources <ArrowRight size={14} /></Link></div></div><Link href="#careers">Careers</Link><Link href="#resources">Resources</Link><Link href="/#contact">Contact</Link><Link className="button button-small nav-cta" href="#contact">Talk to an HR Consultant <ArrowRight size={15} /></Link></nav><button className="menu-button" onClick={() => setOpen(!open)} aria-label={open ? 'Close menu' : 'Open menu'}>{open ? <X /> : <Menu />}</button></div></header> }
-function Eyebrow({ children }: { children: React.ReactNode }) { return <div className="eyebrow"><Sparkles size={12} /> {children}</div> }
-function Reveal({ children, className = '' }: { children: React.ReactNode; className?: string }) { return <div className={`reveal ${className}`}>{children}</div> }
-function Hero() { return <section className="hr-hero"><div className="container hr-hero-content"><Reveal><Eyebrow>VERIDIAN PEOPLE · HUMAN RESOURCES</Eyebrow></Reveal><Reveal className="reveal-delay-1"><h1>People-first <span>for</span><br />growing teams</h1></Reveal><Reveal className="reveal-delay-2"><p className="hero-copy">Recruitment, payroll, compliance, training and culture — handled by senior HR consultants who put your people at the heart of everything.</p></Reveal><Reveal className="reveal-delay-3"><div className="hero-actions"><Link className="button" href="#contact">Talk to an HR Consultant <ArrowRight size={18} /></Link><Link className="button button-light" href="#careers">See Open Roles</Link></div></Reveal><Reveal className="reveal-delay-4"><div className="trust-list"><span><Check size={14} /> Compliance-first</span><span><Check size={14} /> Senior consultants</span><span><Check size={14} /> Scalable support</span></div></Reveal></div></section> }
-function Services() { return <section className="section pale"><div className="container"><Reveal className="section-heading"><Eyebrow>OUR SERVICES</Eyebrow><h2>Everything your people need, handled by experts</h2><p>From hiring your first team member to full HR outsourcing for a scaling workforce.</p></Reveal><div className="hr-services-grid">{services.map(({ title, copy, icon: Icon }, i) => <Reveal key={title} className={`reveal-delay-${(i % 3) + 1}`}><article className="hr-service-card"><div className="hr-icon"><Icon size={21} /></div><h3>{title}</h3><p>{copy}</p></article></Reveal>)}</div></div></section> }
-function Process() { return <section className="section"><div className="container"><Reveal className="section-heading"><Eyebrow>HOW IT WORKS</Eyebrow><h2>A simple engagement from first call to ongoing support</h2></Reveal><div className="hr-process-grid">{process.map(([number, title, copy], i) => <Reveal key={number} className={`reveal-delay-${i + 1}`}><article className="hr-process-card"><strong>{number}</strong><h3>{title}</h3><p>{copy}</p>{i < 3 && <ArrowRight className="hr-process-arrow" size={18} />}</article></Reveal>)}</div></div></section> }
-function Resources() { return <section id="resources" className="section pale"><div className="container"><Reveal className="section-heading"><Eyebrow>RESOURCES</Eyebrow><h2>Free HR resources for your business</h2><p>Download practical templates, checklists and guides to put great people practices in place today.</p></Reveal><div className="hr-resources-grid">{resources.map(([type, title, copy, meta]) => <Reveal key={title}><article className="hr-resource-card"><div className="resource-icon"><Download size={19} /></div><b>{type}</b><h3>{title}</h3><p>{copy}</p><small>{meta}</small><button type="button" className="button button-outline"><Download size={15} /> Download</button></article></Reveal>)}</div></div></section> }
-function Careers() { return <section id="careers" className="section hr-careers"><div className="container"><Reveal className="section-heading"><Eyebrow>CAREERS</Eyebrow><h2>Build a career that puts people first</h2><p>We&apos;re always looking for driven HR professionals. Here are a few of our current openings.</p></Reveal><div className="roles-grid">{roles.map((role, i) => <Reveal key={role}><article className="role-card"><div className="role-top"><div className="role-icon"><BriefcaseBusiness size={18} /></div><b>{['PEOPLE OPS', 'RECRUITMENT', 'OPERATIONS', 'CONSULTING'][i]}</b></div><h3>{role}</h3><p>{i === 1 ? 'Remote · Full-time' : i === 2 ? 'Hybrid · Full-time' : 'Remote / Hybrid · Full-time'}</p><div className="role-tags"><span>{i % 2 ? 'Hiring' : 'Recruitment'}</span><span>{i % 2 ? 'Sourcing' : 'Employee Relations'}</span></div><Link className="button button-light button-small" href="mailto:careers@veridiangroup.com">Apply Now <ArrowRight size={15} /></Link></article></Reveal>)}</div></div></section> }
-function FAQ() { const [active, setActive] = useState(0); return <section className="section hr-faq"><div className="container faq-container"><Reveal className="section-heading"><Eyebrow>FAQ</Eyebrow><h2>HR questions, answered</h2><p>Services, pricing, downloads and consultations — here&apos;s what to expect.</p></Reveal><Reveal className="faq-list">{faqs.map(([q, a], i) => <div className={`faq-item ${active === i ? 'faq-active' : ''}`} key={q}><button onClick={() => setActive(active === i ? -1 : i)} aria-expanded={active === i}><span>{q}</span><span className="faq-toggle">{active === i ? <X size={15} /> : '+'}</span></button>{active === i && <p>{a}</p>}</div>)}</Reveal></div></section> }
-function Footer() { return <footer className="footer" id="contact"><div className="container footer-cta"><Eyebrow>READY TO GROW?</Eyebrow><h2>Put your people at the heart of growth.</h2><Link className="button button-light" href="mailto:hello@veridiangroup.com">Talk to an HR Consultant <ArrowRight size={18} /></Link></div></footer> }
-export default function HumanResourcesPage() { useEffect(() => { const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible') }), { threshold: 0.1 }); document.querySelectorAll('.reveal').forEach(el => observer.observe(el)); return () => observer.disconnect() }, []); return <><Navbar /><main><Hero /><Services /><Process /><Resources /><Careers /><FAQ /></main><Footer /></> }
+function Hero() {
+  return (
+    <section className="hr-hero">
+      <div className="container hr-hero-content">
+        <Reveal><Eyebrow>VERIDIAN PEOPLE · HUMAN RESOURCES</Eyebrow></Reveal>
+        <Reveal className="reveal-delay-1"><h1>People-first <span>for</span><br />growing teams</h1></Reveal>
+        <Reveal className="reveal-delay-2"><p className="hero-copy">Recruitment, payroll, compliance, training and culture — handled by senior HR consultants who put your people at the heart of everything.</p></Reveal>
+        <Reveal className="reveal-delay-3"><div className="hero-actions"><Link className="button" href="#contact">Talk to an HR Consultant <ArrowRight size={18} /></Link><Link className="button button-light" href="#careers">See Open Roles</Link></div></Reveal>
+        <Reveal className="reveal-delay-4"><div className="trust-list"><span><Check size={14} /> Compliance-first</span><span><Check size={14} /> Senior consultants</span><span><Check size={14} /> Scalable support</span></div></Reveal>
+      </div>
+    </section>
+  )
+}
+
+function Services() {
+  return (
+    <section className="section pale">
+      <div className="container">
+        <Reveal className="section-heading"><Eyebrow>OUR SERVICES</Eyebrow><h2>Everything your people need, handled by experts</h2><p>From hiring your first team member to full HR outsourcing for a scaling workforce.</p></Reveal>
+        <div className="hr-services-grid">
+          {services.map(({ title, copy, icon: Icon }, i) => (
+            <Reveal key={title} className={`reveal-delay-${(i % 3) + 1}`}>
+              <article className="hr-service-card">
+                <div className="hr-icon"><Icon size={21} /></div>
+                <h3>{title}</h3>
+                <p>{copy}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Process() {
+  return (
+    <section className="section">
+      <div className="container">
+        <Reveal className="section-heading"><Eyebrow>HOW IT WORKS</Eyebrow><h2>A simple engagement from first call to ongoing support</h2></Reveal>
+        <div className="hr-process-grid">
+          {process.map(([number, title, copy], i) => (
+            <Reveal key={number} className={`reveal-delay-${i + 1}`}>
+              <article className="hr-process-card">
+                <strong>{number}</strong>
+                <h3>{title}</h3>
+                <p>{copy}</p>
+                {i < 3 && <ArrowRight className="hr-process-arrow" size={18} />}
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Resources() {
+  return (
+    <section id="resources" className="section pale">
+      <div className="container">
+        <Reveal className="section-heading"><Eyebrow>RESOURCES</Eyebrow><h2>Free HR resources for your business</h2><p>Download practical templates, checklists and guides to put great people practices in place today.</p></Reveal>
+        <div className="hr-resources-grid">
+          {resources.map(([type, title, copy, meta]) => (
+            <Reveal key={title}>
+              <article className="hr-resource-card">
+                <div className="resource-icon"><Download size={19} /></div>
+                <b>{type}</b>
+                <h3>{title}</h3>
+                <p>{copy}</p>
+                <small>{meta}</small>
+                <button type="button" className="button button-outline"><Download size={15} /> Download</button>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Careers() {
+  return (
+    <section id="careers" className="section hr-careers">
+      <div className="container">
+        <Reveal className="section-heading"><Eyebrow>CAREERS</Eyebrow><h2>Build a career that puts people first</h2><p>We&apos;re always looking for driven HR professionals. Here are a few of our current openings.</p></Reveal>
+        <div className="roles-grid">
+          {roles.map((role, i) => (
+            <Reveal key={role}>
+              <article className="role-card">
+                <div className="role-top">
+                  <div className="role-icon"><BriefcaseBusiness size={18} /></div>
+                  <b>{(['PEOPLE OPS', 'RECRUITMENT', 'OPERATIONS', 'CONSULTING'] as const)[i]}</b>
+                </div>
+                <h3>{role}</h3>
+                <p>{i === 1 ? 'Remote · Full-time' : i === 2 ? 'Hybrid · Full-time' : 'Remote / Hybrid · Full-time'}</p>
+                <div className="role-tags">
+                  <span>{i % 2 ? 'Hiring' : 'Recruitment'}</span>
+                  <span>{i % 2 ? 'Sourcing' : 'Employee Relations'}</span>
+                </div>
+                <Link className="button button-light button-small" href="mailto:careers@veridiangroup.com">Apply Now <ArrowRight size={15} /></Link>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function FAQ() {
+  const [active, setActive] = useState(0)
+  return (
+    <section className="section hr-faq">
+      <div className="container faq-container">
+        <Reveal className="section-heading"><Eyebrow>FAQ</Eyebrow><h2>HR questions, answered</h2><p>Services, pricing, downloads and consultations — here&apos;s what to expect.</p></Reveal>
+        <Reveal className="faq-list">
+          {faqs.map(([q, a], i) => (
+            <div className={`faq-item ${active === i ? 'faq-active' : ''}`} key={q}>
+              <button onClick={() => setActive(active === i ? -1 : i)} aria-expanded={active === i}>
+                <span>{q}</span>
+                <span className="faq-toggle">{active === i ? <X size={15} /> : '+'}</span>
+              </button>
+              {active === i && <p>{a}</p>}
+            </div>
+          ))}
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
+function Footer() { return <SiteFooter /> }
+
+export default function HumanResourcesPage() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible') }),
+      { threshold: 0.1 }
+    )
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+  return (
+    <>
+      <Navbar
+        ctaLabel="Talk to an HR Consultant"
+        ctaHref="#contact"
+        extraLinks={[{ label: 'Careers', href: '#careers' }, { label: 'Resources', href: '#resources' }]}
+      />
+      <main><Hero /><Services /><Process /><Resources /><Careers /><FAQ /></main>
+      <Footer />
+    </>
+  )
+}
