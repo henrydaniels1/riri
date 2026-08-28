@@ -35,7 +35,7 @@ function Hero() {
   return (
     <section className="ghost-hero">
       <div className="container ghost-hero-content">
-        <Reveal><Eyebrow>VERIDIAN INK · GHOSTWRITING</Eyebrow></Reveal>
+        <Reveal><Eyebrow>RIRI INK · GHOSTWRITING</Eyebrow></Reveal>
         <Reveal className="reveal-delay-1"><h1>Your Story.</h1></Reveal>
         <Reveal className="reveal-delay-2"><p className="hero-copy">Professional ghostwriting for books, blogs, speeches and executive content — written invisibly in your authentic voice, with your name on the cover.</p></Reveal>
         <Reveal className="reveal-delay-3"><div className="hero-actions"><Link className="button" href="#contact">Get a Free Quote <ArrowRight size={18} /></Link><Link className="button button-light" href="#offer">See What We Offer</Link></div></Reveal>
@@ -101,9 +101,11 @@ function Pricing() {
                 <h3>{title}</h3>
                 <small>{i === 2 ? 'tailored quote' : 'per project'}</small>
                 <strong>{price}</strong>
-                <p><Check size={15} /> {feature}</p>
-                <p><Check size={15} /> Voice discovery session</p>
-                <p><Check size={15} /> Dedicated project support</p>
+                <div className="price-features">
+                  <p><Check size={15} /> {feature}</p>
+                  <p><Check size={15} /> Voice discovery session</p>
+                  <p><Check size={15} /> Dedicated project support</p>
+                </div>
                 <Link className={`button ${i === 1 ? 'button-green' : 'button-outline'}`} href="#contact">Get Started</Link>
               </article>
             </Reveal>

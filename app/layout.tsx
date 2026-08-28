@@ -7,9 +7,9 @@ const geist = Geist({ subsets: ['latin'], variable: '--font-geist' })
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
 
 export const metadata: Metadata = {
-  title: 'Veridian Group | Expertise under one roof',
-  description: 'Veridian Group connects business leaders with specialized ghostwriting, cyber security and human resources experts.',
-  generator: 'v0.app',
+  title: 'RIRI Group | Expertise under one roof',
+  description: 'RIRI Group connects business leaders with specialized ghostwriting, cyber security and human resources experts.',
+  generator: 'chedwebsite',
 }
 
 export const viewport: Viewport = {

@@ -15,10 +15,10 @@ export function Logo({ footer = false }: { footer?: boolean }) {
     <Link
       href="/"
       className={`logo ${footer ? 'logo-footer' : ''}`}
-      aria-label="Veridian Group home"
+      aria-label="RIRI Group home"
     >
       <span className="logo-mark">◆</span>
-      <span>Veridian{footer ? ' Group' : ''}</span>
+      <span>RIRI{footer ? ' Group' : ''}</span>
     </Link>
   )
 }

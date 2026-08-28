@@ -38,7 +38,7 @@ function Hero() {
       <div className="security-orbit security-orbit-two" />
       <div className="container security-hero-content">
         <div className="security-copy">
-          <Reveal><Eyebrow><ShieldCheck size={12} /> VERIDIAN SHIELD · CYBER SECURITY</Eyebrow></Reveal>
+          <Reveal><Eyebrow><ShieldCheck size={12} /> RIRI SHIELD · CYBER SECURITY</Eyebrow></Reveal>
           <Reveal className="reveal-delay-1"><h1>Protecting what <span>matters</span></h1></Reveal>
           <Reveal className="reveal-delay-2"><p className="hero-copy">Proactive security that finds and fixes vulnerabilities before criminals do — so your business stays up, compliant and out of the headlines.</p></Reveal>
           <Reveal className="reveal-delay-3"><div className="hero-actions"><Link className="button" href="#contact">Request a Security Audit <ArrowRight size={18} /></Link><Link className="button button-light" href="#services">Explore Services</Link></div></Reveal>

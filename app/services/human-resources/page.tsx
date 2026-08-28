@@ -42,7 +42,7 @@ function Hero() {
   return (
     <section className="hr-hero">
       <div className="container hr-hero-content">
-        <Reveal><Eyebrow>VERIDIAN PEOPLE · HUMAN RESOURCES</Eyebrow></Reveal>
+        <Reveal><Eyebrow>RIRI PEOPLE · HUMAN RESOURCES</Eyebrow></Reveal>
         <Reveal className="reveal-delay-1"><h1>People-first <span>for</span><br />growing teams</h1></Reveal>
         <Reveal className="reveal-delay-2"><p className="hero-copy">Recruitment, payroll, compliance, training and culture — handled by senior HR consultants who put your people at the heart of everything.</p></Reveal>
         <Reveal className="reveal-delay-3"><div className="hero-actions"><Link className="button" href="#contact">Talk to an HR Consultant <ArrowRight size={18} /></Link><Link className="button button-light" href="#careers">See Open Roles</Link></div></Reveal>
@@ -138,7 +138,7 @@ function Careers() {
                   <span>{i % 2 ? 'Hiring' : 'Recruitment'}</span>
                   <span>{i % 2 ? 'Sourcing' : 'Employee Relations'}</span>
                 </div>
-                <Link className="button button-light button-small" href="mailto:careers@veridiangroup.com">Apply Now <ArrowRight size={15} /></Link>
+                <Link className="button button-light button-small" href="mailto:careers@RIRIgroup.com">Apply Now <ArrowRight size={15} /></Link>
               </article>
             </Reveal>
           ))}
