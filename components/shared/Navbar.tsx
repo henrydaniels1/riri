@@ -68,7 +68,7 @@ export function Navbar({
           {extraLinks?.map(l => (
             <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</Link>
           ))}
-          <Link href="/#contact" onClick={() => setOpen(false)}>Contact</Link>
+          <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
         </nav>
 
         {/* CTA — right */}
